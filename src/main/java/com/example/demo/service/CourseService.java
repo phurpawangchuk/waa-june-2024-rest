@@ -11,6 +11,5 @@ public interface CourseService {
     String create(Course couse);
     String delete(int courseId);
     String update(int courseId, Course course);
-    Course getCoursesByStudentId(int studentId);
     List<Course> getAll();
 }

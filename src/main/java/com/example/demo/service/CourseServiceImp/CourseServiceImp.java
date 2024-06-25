@@ -2,12 +2,10 @@ package com.example.demo.service.CourseServiceImp;
 
 
 import com.example.demo.entity.Course;
-import com.example.demo.entity.Student;
 import com.example.demo.repository.CourseRepo;
 import com.example.demo.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,7 +24,6 @@ public class CourseServiceImp implements CourseService {
     @Override
     public String create(Course course) {
         courseList.add(course);
-       // System.out.println(courseList.stream().toArray());
         return "Created the course.";
     }
 
@@ -50,12 +47,6 @@ public class CourseServiceImp implements CourseService {
             return "Successfully updated the code.";
         }
         return "Course not found.";
-    }
-
-    @Override
-    public Course getCoursesByStudentId(int studentId) {
-         //Course c = courseList.stream().anyMatch(student -> student.getId() == studentId);
-         return null;
     }
 
     @Override

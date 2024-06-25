@@ -17,6 +17,5 @@ public class Student {
     private String gpa;
     private Date coursesTaken;
 
-
     private List<Course> assignedCourses;
 }

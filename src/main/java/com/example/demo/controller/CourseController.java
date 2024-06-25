@@ -3,13 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.entity.Course;
 import com.example.demo.entity.Student;
 import com.example.demo.service.CourseService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,31 +20,18 @@ public class CourseController {
         return courseService.create(course);
     }
 
-    @Operation(summary = "Get All Courses")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Found the courses",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Course.class)) }),
-            @ApiResponse(responseCode = "404", description = "Courses not found",
-                    content = @Content)
-    })
     @GetMapping
     public List<Course> getAll(){
-        return null;
+        return courseService.getAll();
     }
 
     @PutMapping("/{courseId}")
-    public ResponseEntity<String> update(@PathVariable int courseId){
-    return null;
+    public String update(@PathVariable int courseId, @RequestBody Course course){
+        return courseService.update(courseId,course);
     }
 
     @DeleteMapping("/{courseId}")
-    public ResponseEntity<String> delete(@PathVariable int courseId){
-    return null;
-    }
-
-    @GetMapping("/{studentId}")
-    public Student getCoursesByStudentId(@PathVariable  int studentId){
-        return null;
+    public String delete(@PathVariable int courseId){
+        return courseService.delete(courseId);
     }
 }
